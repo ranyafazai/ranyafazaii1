@@ -4,12 +4,14 @@ import { login, register } from "../../Api/auth.api";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input"; 
 import { Alert, AlertDescription } from "../../components/ui/alert";
+import { Link, useNavigate } from "react-router-dom";
 
 interface AuthFormProps {
   type: "signin" | "signup";
 }
 
 export default function AuthForm({ type }: AuthFormProps) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [fullName, setFullName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -37,7 +39,7 @@ export default function AuthForm({ type }: AuthFormProps) {
       } else {
         await login(formData);
       }
-      window.location.href = "/";
+      navigate("/");
     } catch (err: any) {
       const msg =
         err?.response?.data?.message ||
@@ -162,12 +164,12 @@ export default function AuthForm({ type }: AuthFormProps) {
         {type === "signin" ? (
           <p>
             Don’t have an account?{" "}
-            <a href="/signup" className="text-[#008CBA] font-medium">Sign up</a>
+            <Link to="/signup" className="text-[#008CBA] font-medium">Sign up</Link>
           </p>
         ) : (
           <p>
             Already have an account?{" "}
-            <a href="/signin" className="text-[#008CBA] font-medium">Sign in</a>
+            <Link to="/signin" className="text-[#008CBA] font-medium">Sign in</Link>
           </p>
         )}
       </div>

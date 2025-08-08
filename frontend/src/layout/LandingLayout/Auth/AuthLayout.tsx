@@ -1,4 +1,5 @@
 import React, { type ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 interface AuthLayoutProps {
   children: ReactNode;
@@ -44,7 +45,7 @@ export default function AuthLayout({ children, title, subtitle }: AuthLayoutProp
       {/* Right: form panel */}
       <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center px-6 sm:px-10 py-12">
         <div className="w-full max-w-md">
-          <a href="/" className="text-sm text-[#008CBA] mb-4 inline-block">&larr; Back to role selection</a>
+          <Link to="/" className="text-sm text-[#008CBA] mb-4 inline-block">&larr; Back to role selection</Link>
 
           <div className="flex items-center gap-2 mb-2">
             <span className="w-3 h-3 bg-[#008CBA] rounded-full inline-block" />
