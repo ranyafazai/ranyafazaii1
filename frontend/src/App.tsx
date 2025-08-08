@@ -4,12 +4,6 @@ import SignIn from "./layout/LandingLayout/Auth/SignIn";
 import SignUp from "./layout/LandingLayout/Auth/SignUp";
 
 export default function App() {
-  return {
-    /* Router mounts sign-in and sign-up pages */
-  } as any;
-}
-
-export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
