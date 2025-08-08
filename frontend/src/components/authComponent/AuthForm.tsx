@@ -34,7 +34,7 @@ export default function AuthForm({ type }: AuthFormProps) {
           setError("Passwords do not match");
           return;
         }
-        await register({ ...formData, fullName, confirmPassword });
+        await register({ email: formData.email, password: formData.password });
       } else {
         await login(formData);
       }
